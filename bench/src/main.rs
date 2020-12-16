@@ -5,6 +5,7 @@ use crate::run_bench_protocol_buffers::ProtocolBufferBench;
 use crate::run_bench_no_proto::NoProtoBench;
 use crate::run_bench_flatbuffers::FlatBufferBench;
 use crate::run_bench_bson::BSONBench;
+use crate::run_bench_serde_json::SerdeJsonBench;
 
 pub const LOOPS: usize = 1_000_000;
 
@@ -22,6 +23,7 @@ mod run_bench_flatbuffers;
 mod run_bench_messagepack;
 mod run_bench_json;
 mod run_bench_bson;
+mod run_bench_serde_json;
 
 /*
 1,000,000 iterations
@@ -35,47 +37,50 @@ fn main() {
     println!("====== SIZE BENCHMARK ======");
 
     NoProtoBench::size_bench();
-    FlatBufferBench::size_bench();
-    ProtocolBufferBench::size_bench();
-    MessagePackBench::size_bench();
-    JSONBench::size_bench();
-    BSONBench::size_bench();
+    //FlatBufferBench::size_bench();
+    //ProtocolBufferBench::size_bench();
+    //MessagePackBench::size_bench();
+    //JSONBench::size_bench();
+    //BSONBench::size_bench();
+    SerdeJsonBench::size_bench();
 
     println!("\n====== ENCODE BENCHMARK ======");
     
     let base = NoProtoBench::encode_bench().unwrap();
-    FlatBufferBench::encode_bench(base);
-    ProtocolBufferBench::encode_bench(base);
-    MessagePackBench::encode_bench(base);
-    JSONBench::encode_bench(base);
-    BSONBench::encode_bench(base);
+    //FlatBufferBench::encode_bench(base);
+    //ProtocolBufferBench::encode_bench(base);
+    //MessagePackBench::encode_bench(base);
+    //JSONBench::encode_bench(base);
+    //BSONBench::encode_bench(base);
+    SerdeJsonBench::encode_bench(base);
 
     println!("\n====== DECODE BENCHMARK ======");
 
     let base = NoProtoBench::decode_bench().unwrap();
-    FlatBufferBench::decode_bench(base);
-    ProtocolBufferBench::decode_bench(base);
-    MessagePackBench::decode_bench(base);
-    JSONBench::decode_bench(base);
-    BSONBench::decode_bench(base);
+    //FlatBufferBench::decode_bench(base);
+    //ProtocolBufferBench::decode_bench(base);
+    //MessagePackBench::decode_bench(base);
+    //JSONBench::decode_bench(base);
+    //BSONBench::decode_bench(base);
+    SerdeJsonBench::decode_bench(base);
 
     println!("\n====== DECODE ONE BENCHMARK ======");
 
-    let base = NoProtoBench::decode_one_bench().unwrap();
-    FlatBufferBench::decode_one_bench(base);
-    ProtocolBufferBench::decode_one_bench(base);
-    MessagePackBench::decode_one_bench(base);
-    JSONBench::decode_one_bench(base);
-    BSONBench::decode_one_bench(base);
+    //let base = NoProtoBench::decode_one_bench().unwrap();
+    //FlatBufferBench::decode_one_bench(base);
+    //ProtocolBufferBench::decode_one_bench(base);
+    //MessagePackBench::decode_one_bench(base);
+    //JSONBench::decode_one_bench(base);
+    //BSONBench::decode_one_bench(base);
     
 
     println!("\n====== UPDATE ONE BENCHMARK ======");
 
-    let base = NoProtoBench::update_bench().unwrap();
-    FlatBufferBench::update_bench(base);
-    ProtocolBufferBench::update_bench(base);
-    MessagePackBench::update_bench(base);
-    JSONBench::update_bench(base);
-    BSONBench::update_bench(base);
+    //let base = NoProtoBench::update_bench().unwrap();
+    //FlatBufferBench::update_bench(base);
+    //ProtocolBufferBench::update_bench(base);
+    //MessagePackBench::update_bench(base);
+    //JSONBench::update_bench(base);
+    //BSONBench::update_bench(base);
 }
 

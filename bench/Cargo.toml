@@ -16,7 +16,8 @@ no_proto = { path = "../" }
 protobuf = "2.18.1"
 # no_proto = "0.4.2"
 rand = "0.7.3"
-
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
 
 [target.x86_64-apple-darwin]
 rustflags = ["-Ctarget-cpu=native"]
